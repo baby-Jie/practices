@@ -1,3 +1,7 @@
 1. sed -i '/^$/d' test1
 2. sed -i '/^\s*$/d' test2
 3. sed -i '/^\s*#/d' test3
+4. sed -i -e's/^/ip is:/' -e's/$/\tend/' test4
+5. sed -i -e'/^\s*$/!s/^/ip is:/' -e'/^\s*$/!s/$/\tend/' test5 
+6. sed -i -e'i before' -e'a after' test6
+7. sed -i -e'/^\s*$/!i before' -e'/^\s*$/!a after' test7
