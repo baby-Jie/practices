@@ -1,0 +1,7 @@
+系统命令实现：
+dos2unix test.txt
+unix2dos test.txt
+
+自定义命令实现:
+sed -i 's/\r$//' test.txt
+sed -i 's/$/\r/' test.txt

@@ -1,0 +1,9 @@
+#!/bin/bash
+echo hello bash # this is comment
+export PATH=$PATH:~/bin
+# comment1
+set nu
+
+ # comment2
+	# comment3
+echo end
