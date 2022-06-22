@@ -1,0 +1,17 @@
+选择10号数据库
+清空数据库
+添加 name:Sun, age:18
+查询 name, age
+追加name:MingXing
+获取name的长度
+当address不存在时添加 address:shanghai
+age+1
+age-1
+age+10
+当 score、sex不存在时设置 score:100, sex:male
+获取name中的名
+将name中的名改为DaSheng
+添加vip:jingdong, 过期时间为100s
+将address改为lianyungang并获取旧值
+
+

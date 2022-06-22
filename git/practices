@@ -1,0 +1,10 @@
+init git目录
+添加readme.md 并提交
+显示当前的分支
+将当前的分支重命名为 smx
+再基于smx分支创建 private/smx/1 private/smx/2 分支
+批量删除 private/smx/1 private/smx/2 分支
+
+创建一个git目录添加readme.md 并关联到刚创建的gitee仓库
+
+

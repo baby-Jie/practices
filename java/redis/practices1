@@ -1,0 +1,9 @@
+1. 使用数据库10
+2. 查看当前库有多少个key
+3. 添加string，key: name, value: smx key:age value:18
+4. 查看当前库中是否包含 name key
+5. 查看name key的类型
+6. 删除 age key
+7. 查看所有key，并再次查看当前库中有多少个key
+8. 删除当前库中所有的key
+9. 查看所有的客户端连接列表
