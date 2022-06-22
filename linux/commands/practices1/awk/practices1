@@ -1,0 +1,7 @@
+awk.txt, 只打印姓名和电话号码
+/etc/passwd, 打印用户名和用户shell
+awk.txt, 打印每行分别有多少个字段
+awk.txt, 打印每行最后一个和倒数第二个字段
+awk.txt, 对年龄进行求和
+awk.txt, 求年龄的平均数
+awk.txt, 每行的年龄+10再输出
