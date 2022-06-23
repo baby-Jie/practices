@@ -1,0 +1,3 @@
+hello my  xmlns:localizedStrings="clr-namespace:Encoo.Studio.Properties"
+name is smx 导入数据表 and 
+what is your name? "{x:Static localizedStrings:Resource.EditColumn}"  end

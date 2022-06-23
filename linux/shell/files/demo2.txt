@@ -1,0 +1,108 @@
+i<UserControl x:Class="Encoo.Studio.DataTables.Views.DataTableSummaryView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:assists="clr-namespace:Workflow.Lib.Assists;assembly=Workflow.Lib"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Encoo.Studio.DataTables.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:localizedStrings="clr-namespace:Encoo.Studio.Properties" d:DesignHeight="450"
+             d:DesignWidth="800" mc:Ignorable="d">
+    <UserControl.Resources>
+        <Geometry x:Key="DownGeometry">M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z</Geometry>
+
+        <!--  Save.Button.Style  -->
+        <Style x:Key="Save.Button.Style"
+               BasedOn="{StaticResource Encoo.White.Button.Style}"
+               TargetType="Button">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Content">
+                <Setter.Value>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="18" Source="/Assets/DataTables/datatable_save.png"
+                               Stretch="Uniform" />
+                        <TextBlock Margin="8,0,8,0" VerticalAlignment="Center"
+                                   Text="{x:Static localizedStrings:Resource.SaveDataTable}" />
+                    </StackPanel>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Import.Button.Style  -->
+        <Style x:Key="Import.Button.Style"
+               BasedOn="{StaticResource Encoo.White.Button.Style}"
+               TargetType="Button">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Content">
+                <Setter.Value>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="18" Source="/Assets/DataTables/datatable_import.png"
+                               Stretch="Uniform" />
+                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center"
+                                   Text="{x:Static localizedStrings:Resource.ImportDataTable}" />
+                        <Path Width="8" Height="8"
+                              Margin="8,0,8,0"
+                              Data="{StaticResource DownGeometry}"
+                              Fill="#8f9bb3" Stretch="Uniform" />
+                    </StackPanel>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Import.Popup.Style" TargetType="Popup">
+            <Setter Property="AllowsTransparency" Value="True" />
+            <Setter Property="StaysOpen" Value="False" />
+            <Setter Property="Placement" Value="Bottom" />
+            <Setter Property="IsOpen" Value="{Binding IsImportPopupOpen}" />
+        </Style>
+
+        <Style x:Key="ImportInner.Button.Style"
+               BasedOn="{StaticResource Encoo.White.Button.Style}"
+               TargetType="Button">
+            <Setter Property="Width" Value="110" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Padding" Value="6,0,0,0" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SaveBtn"
+                        Command="{Binding SaveCmd}"
+                        Style="{StaticResource Save.Button.Style}" />
+                <Button x:Name="ImportBtn"
+                        Command="{Binding ImportCmd}"
+                        Style="{StaticResource Import.Button.Style}" />
+            </StackPanel>
+
+            <Popup x:Name="ImportPopup"
+                   PlacementTarget="{Binding ElementName=ImportBtn}"
+                   Style="{StaticResource Import.Popup.Style}">
+                <Border BorderBrush="#E4E9F2" BorderThickness="1">
+                    <StackPanel Orientation="Vertical">
+                        <Button Command="{Binding ImportFromConsoleCmd}"
+                                Content="{x:Static localizedStrings:Resource.Console}"
+                                Style="{StaticResource ImportInner.Button.Style}" />
+                        <Button Command="{Binding ImportFromExcelCmd}"
+                                Content="Excel"
+                                Style="{StaticResource ImportInner.Button.Style}" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TabControl SelectedIndex="{Binding SelectedTabIndex}" BorderThickness="0 1 0 0" BorderBrush="#DCE1EA">
+                <TabItem Header="{x:Static localizedStrings:Resource.Data}" Style="{StaticResource Encoo.White.TabItem.Style}">
+                    <local:DataTableDataView Margin="16,0,0,0" DataContext="{Binding DataViewModel}" />
+                </TabItem>
+                <TabItem Header="{x:Static localizedStrings:Resource.EditColumn}" Style="{StaticResource Encoo.White.TabItem.Style}">
+                    <local:DataTableColumnView DataContext="{Binding ColumnViewModel}" />
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>
